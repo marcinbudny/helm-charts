@@ -20,7 +20,7 @@ spec:
         release: {{ .Release.Name }}
       annotations:
         "prometheus.io/scrape": true
-        "prometheus.io/port": {{ .Values.service.internalPort }}
+        "prometheus.io/port": "5000"
         "prometheus.io/path": /metrics
     spec:
       imagePullSecrets:
