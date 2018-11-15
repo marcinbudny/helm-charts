@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "trackableappname" . }}
+  name: {{ template "fullname" . }}
   labels:
     app: {{ template "appname" . }}
     track: "{{ .Values.application.track }}"
@@ -22,7 +22,7 @@ spec:
       imagePullSecrets:
 {{ toYaml .Values.image.secrets | indent 10 }}
       containers:
-      - name: {{ .Chart.Name }}
+      - name: {{ template "name" }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
