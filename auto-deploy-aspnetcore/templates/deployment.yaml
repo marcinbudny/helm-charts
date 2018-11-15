@@ -22,7 +22,7 @@ spec:
       imagePullSecrets:
 {{ toYaml .Values.image.secrets | indent 10 }}
       containers:
-      - name: {{ template "name" }}
+      - name: {{ template "name" . }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
