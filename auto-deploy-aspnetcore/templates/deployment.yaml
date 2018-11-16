@@ -28,6 +28,8 @@ spec:
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: {{ .Values.application.environment | quote }}
+        - name: ASPNETCORE_URLS
+          value: {{ .Values.application.urls | quote }}
         ports:
         - name: "{{ .Values.service.name }}"
           containerPort: {{ .Values.service.internalPort }}

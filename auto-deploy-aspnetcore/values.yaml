@@ -12,6 +12,8 @@ application:
   app: CI_ENVIRONMENT_SLUG
   track: stable
   tier: web
+#  urls: http://0.0.0.0:5000
+#  environment: development
 service:
   enabled: true
   name: web
