@@ -9,6 +9,7 @@ image:
   secrets:
     - name: gitlab-registry
 application:
+  app: CI_ENVIRONMENT_SLUG
   track: stable
   tier: web
 service:
@@ -23,9 +24,9 @@ ingress:
 postgresql:
   enabled: false
 resources:
-#  limits:
-#    cpu: 100m
-#    memory: 128Mi
-#  requests:
-#    cpu: 100m
-#    memory: 128Mi
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
