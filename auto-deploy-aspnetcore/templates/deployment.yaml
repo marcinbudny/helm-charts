@@ -37,13 +37,13 @@ spec:
           httpGet:
             path: /ping
             port: {{ .Values.service.internalPort }}
-          initialDelaySeconds: 15
+          initialDelaySeconds: 30
           timeoutSeconds: 15
         readinessProbe:
           httpGet:
             path: /health
             port: {{ .Values.service.internalPort }}
-          initialDelaySeconds: 5
-          timeoutSeconds: 3
+          initialDelaySeconds: 15
+          timeoutSeconds: 10
         resources:
 {{ toYaml .Values.resources | indent 12 }}
