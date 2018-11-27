@@ -40,12 +40,16 @@ spec:
             path: /ping
             port: {{ .Values.service.internalPort }}
           initialDelaySeconds: 60
-          timeoutSeconds: 15
+          timeoutSeconds: 30
+          successThreshold: 1
+          failureThreshold": 5
         readinessProbe:
           httpGet:
             path: /health
             port: {{ .Values.service.internalPort }}
-          initialDelaySeconds: 30
-          timeoutSeconds: 10
+          initialDelaySeconds: 60
+          timeoutSeconds: 30
+          successThreshold: 1
+          failureThreshold": 5
         resources:
 {{ toYaml .Values.resources | indent 12 }}
