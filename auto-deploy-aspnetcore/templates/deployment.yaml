@@ -38,7 +38,7 @@ spec:
           containerPort: {{ .Values.service.internalPort }}
         livenessProbe:
           httpGet:
-            path: /ping
+            path: {{ .Values.livenessprobe.path }}
             port: {{ .Values.service.internalPort }}
           initialDelaySeconds: 60
           timeoutSeconds: 30
@@ -46,7 +46,7 @@ spec:
           failureThreshold": 5
         readinessProbe:
           httpGet:
-            path: /health
+            path: {{ .Values.readinessprobe.path }}
             port: {{ .Values.service.internalPort }}
           initialDelaySeconds: 60
           timeoutSeconds: 30
