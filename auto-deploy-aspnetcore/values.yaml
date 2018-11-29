@@ -37,4 +37,4 @@ resources:
     cpu: 300m
     memory: 1Gi
 podAnnotations:
-  prometheus.io/scrape: "\"true\""
+  prometheus.io/scrape: "true"
